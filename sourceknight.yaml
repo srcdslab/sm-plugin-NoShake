@@ -1,0 +1,15 @@
+project:
+  sourceknight: 0.1
+  name: NoShake
+  dependencies:
+    - name: sourcemod
+      type: tar
+      version: 1.11.0-git6906
+      location: https://sm.alliedmods.net/smdrop/1.11/sourcemod-1.11.0-git6906-linux.tar.gz
+      unpack:
+      - source: /addons
+        dest: /addons
+  root: /
+  output: /addons/sourcemod/plugins
+  targets:
+    - NoShake
