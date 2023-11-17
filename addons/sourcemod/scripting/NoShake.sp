@@ -96,7 +96,7 @@ public Action Command_Shake(int client, int args)
 	}
 
 	if (g_bNoShake[client])
-		g_bNoShake[client] = false;
+		g_bNoShake[client] = !g_bNoShake[client];
 	else
 		g_bNoShake[client] = true;
 
@@ -135,11 +135,7 @@ public int NotifierSettingHandler(Menu menu, MenuAction action, int param1, int 
 			char type[32], info[64], display[64];
 			menu.GetItem(param2, info, sizeof(info));
 			if (StrEqual(info, "noshake")) {
-				if (g_bNoShake[param1])
-					Format(type, sizeof(type), "Enabled");
-				else
-					Format(type, sizeof(type), "Disabled");
-
+				Format(type, sizeof(type), g_bNoShake[param1] ? "Enabled" : "Disabled");
 				Format(display, sizeof(display), "NoShake: %s", type);
 				return RedrawMenuItem(display);
 			}
@@ -149,7 +145,7 @@ public int NotifierSettingHandler(Menu menu, MenuAction action, int param1, int 
 			menu.GetItem(param2, info, sizeof(info));
 			if (StrEqual(info, "noshake")) {
 				if (g_bNoShake[param1])
-					g_bNoShake[param1] = false;
+					g_bNoShake[param1] = !g_bNoShake[param1];
 				else
 					g_bNoShake[param1] = true;
 			
