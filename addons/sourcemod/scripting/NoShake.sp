@@ -95,11 +95,7 @@ public Action Command_Shake(int client, int args)
 		return Plugin_Handled;
 	}
 
-	if (g_bNoShake[client])
-		g_bNoShake[client] = !g_bNoShake[client];
-	else
-		g_bNoShake[client] = true;
-
+	g_bNoShake[client] = !g_bNoShake[client];
 	CReplyToCommand(client, "{lightgreen}[NoShake]{default} has been %s!", g_bNoShake[client] ? "{green}enabled" : "{red}disabled");
 
 	return Plugin_Handled;
@@ -144,11 +140,7 @@ public int NotifierSettingHandler(Menu menu, MenuAction action, int param1, int 
 			char info[64];
 			menu.GetItem(param2, info, sizeof(info));
 			if (StrEqual(info, "noshake")) {
-				if (g_bNoShake[param1])
-					g_bNoShake[param1] = !g_bNoShake[param1];
-				else
-					g_bNoShake[param1] = true;
-			
+				g_bNoShake[param1] = !g_bNoShake[param1];
 				CReplyToCommand(param1, "{lightgreen}[NoShake]{default} has been %s!", g_bNoShake[param1] ? "{green}enabled" : "{red}disabled");
 			}
 
