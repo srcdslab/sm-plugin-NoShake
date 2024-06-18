@@ -20,7 +20,7 @@ public Plugin myinfo =
 	name 			= "NoShake",
 	author 			= "BotoX, .Rushaway",
 	description 	= "Disable env_shake",
-	version 		= "1.0.3",
+	version 		= "1.0.4",
 	url 			= ""
 };
 
@@ -73,6 +73,9 @@ public void OnClientPutInServer(int client)
 
 public void OnClientDisconnect(int client)
 {
+	if (!AreClientCookiesCached(client) || IsFakeClient(client))
+		return;
+
 	static char sCookieValue[2];
 	IntToString(g_bNoShake[client], sCookieValue, sizeof(sCookieValue));
 	SetClientCookie(client, g_hNoShakeCookie, sCookieValue);
