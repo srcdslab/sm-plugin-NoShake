@@ -11,6 +11,8 @@ Handle g_hNoShakeCookie;
 ConVar g_Cvar_NoShakeGlobal;
 ConVar g_Cvar_ForceShake;
 
+bool g_bLate = false;
+
 bool g_bNoShake[MAXPLAYERS + 1] = {false, ...};
 bool g_bNoShakeGlobal = false;
 bool g_bForceShake = false;
@@ -20,9 +22,15 @@ public Plugin myinfo =
 	name 			= "NoShake",
 	author 			= "BotoX, .Rushaway",
 	description 	= "Disable env_shake",
-	version 		= "1.0.4",
+	version 		= "1.0.5",
 	url 			= ""
 };
+
+public APLRes AskPluginLoad2(Handle myself, bool late, char[] error, int err_max)
+{
+	g_bLate = late;
+	return APLRes_Success;
+}
 
 public void OnPluginStart()
 {
@@ -44,11 +52,16 @@ public void OnPluginStart()
 
 	HookUserMessage(GetUserMessageId("Shake"), MsgHook, true);
 
+	if (!g_bLate)
+		return;
+
 	for (int i = 1; i < MaxClients; i++)
 	{
 		if (IsClientConnected(i))
 			OnClientPutInServer(i);
 	}
+
+	g_bLate = false;
 }
 
 public void OnConVarChanged(ConVar convar, const char[] oldValue, const char[] newValue)
@@ -67,18 +80,19 @@ public void OnConVarChanged(ConVar convar, const char[] oldValue, const char[] n
 
 public void OnClientPutInServer(int client)
 {
+	if (!g_bLate)
+		return;
+
 	if (AreClientCookiesCached(client))
 		ReadClientCookies(client);
 }
 
-public void OnClientDisconnect(int client)
+public void SetClientCookies(int client)
 {
-	if (!AreClientCookiesCached(client) || IsFakeClient(client))
+	if (!client || !IsClientInGame(client) || IsFakeClient(client))
 		return;
 
-	static char sCookieValue[2];
-	IntToString(g_bNoShake[client], sCookieValue, sizeof(sCookieValue));
-	SetClientCookie(client, g_hNoShakeCookie, sCookieValue);
+	SetClientCookie(client, g_hNoShakeCookie, g_bNoShake[client] ? "1" : "0");
 }
 
 public void OnClientCookiesCached(int client)
@@ -121,6 +135,7 @@ public Action Command_Shake(int client, int args)
 	g_bNoShake[client] = !g_bNoShake[client];
 	CReplyToCommand(client, "{lightgreen}[NoShake]{default} has been %s!", g_bNoShake[client] ? "{green}enabled" : "{red}disabled");
 
+	SetClientCookies(client);
 	return Plugin_Handled;
 }
 
@@ -172,6 +187,7 @@ public int NotifierSettingHandler(Menu menu, MenuAction action, int param1, int 
 			{
 				g_bNoShake[param1] = !g_bNoShake[param1];
 				CReplyToCommand(param1, "{lightgreen}[NoShake]{default} has been %s!", g_bNoShake[param1] ? "{green}enabled" : "{red}disabled");
+				SetClientCookies(param1);
 			}
 
 			NotifierSetting(param1);
