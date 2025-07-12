@@ -20,7 +20,7 @@ public Plugin myinfo =
 	name 			= "NoShake",
 	author 			= "BotoX, .Rushaway",
 	description 	= "Disable env_shake",
-	version 		= "1.0.4",
+	version 		= "1.0.5",
 	url 			= ""
 };
 
@@ -71,14 +71,12 @@ public void OnClientPutInServer(int client)
 		ReadClientCookies(client);
 }
 
-public void OnClientDisconnect(int client)
+public void SetClientCookies(int client)
 {
-	if (!AreClientCookiesCached(client) || IsFakeClient(client))
+	if (!client || !IsClientInGame(client) || IsFakeClient(client))
 		return;
 
-	static char sCookieValue[2];
-	IntToString(g_bNoShake[client], sCookieValue, sizeof(sCookieValue));
-	SetClientCookie(client, g_hNoShakeCookie, sCookieValue);
+	SetClientCookie(client, g_hNoShakeCookie, g_bNoShake[client] ? "1" : "0");
 }
 
 public void OnClientCookiesCached(int client)
@@ -121,6 +119,7 @@ public Action Command_Shake(int client, int args)
 	g_bNoShake[client] = !g_bNoShake[client];
 	CReplyToCommand(client, "{lightgreen}[NoShake]{default} has been %s!", g_bNoShake[client] ? "{green}enabled" : "{red}disabled");
 
+	SetClientCookies(client);
 	return Plugin_Handled;
 }
 
@@ -172,6 +171,7 @@ public int NotifierSettingHandler(Menu menu, MenuAction action, int param1, int 
 			{
 				g_bNoShake[param1] = !g_bNoShake[param1];
 				CReplyToCommand(param1, "{lightgreen}[NoShake]{default} has been %s!", g_bNoShake[param1] ? "{green}enabled" : "{red}disabled");
+				SetClientCookies(param1);
 			}
 
 			NotifierSetting(param1);
