@@ -11,6 +11,8 @@ Handle g_hNoShakeCookie;
 ConVar g_Cvar_NoShakeGlobal;
 ConVar g_Cvar_ForceShake;
 
+bool g_bLate = false;
+
 bool g_bNoShake[MAXPLAYERS + 1] = {false, ...};
 bool g_bNoShakeGlobal = false;
 bool g_bForceShake = false;
@@ -23,6 +25,12 @@ public Plugin myinfo =
 	version 		= "1.0.5",
 	url 			= ""
 };
+
+public APLRes AskPluginLoad2(Handle myself, bool late, char[] error, int err_max)
+{
+	g_bLate = late;
+	return APLRes_Success;
+}
 
 public void OnPluginStart()
 {
@@ -44,11 +52,16 @@ public void OnPluginStart()
 
 	HookUserMessage(GetUserMessageId("Shake"), MsgHook, true);
 
+	if (!g_bLate)
+		return;
+
 	for (int i = 1; i < MaxClients; i++)
 	{
 		if (IsClientConnected(i))
 			OnClientPutInServer(i);
 	}
+
+	g_bLate = false;
 }
 
 public void OnConVarChanged(ConVar convar, const char[] oldValue, const char[] newValue)
@@ -67,6 +80,9 @@ public void OnConVarChanged(ConVar convar, const char[] oldValue, const char[] n
 
 public void OnClientPutInServer(int client)
 {
+	if (!g_bLate)
+		return;
+
 	if (AreClientCookiesCached(client))
 		ReadClientCookies(client);
 }
