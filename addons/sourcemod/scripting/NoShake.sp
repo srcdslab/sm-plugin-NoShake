@@ -78,6 +78,16 @@ public void OnConVarChanged(ConVar convar, const char[] oldValue, const char[] n
 	}
 }
 
+stock void SetNoShake(int client)
+{
+	if (!client || !IsClientInGame(client) || IsFakeClient(client))
+		return;
+
+	g_bNoShake[client] = !g_bNoShake[client];
+	CReplyToCommand(client, "{lightgreen}[NoShake]{default} has been %s!", g_bNoShake[client] ? "{green}enabled" : "{red}disabled");
+	SetClientCookie(client, g_hNoShakeCookie, g_bNoShake[client] ? "1" : "0");
+}
+
 public void OnClientPutInServer(int client)
 {
 	if (!g_bLate)
@@ -85,14 +95,6 @@ public void OnClientPutInServer(int client)
 
 	if (AreClientCookiesCached(client))
 		ReadClientCookies(client);
-}
-
-public void SetClientCookies(int client)
-{
-	if (!client || !IsClientInGame(client) || IsFakeClient(client))
-		return;
-
-	SetClientCookie(client, g_hNoShakeCookie, g_bNoShake[client] ? "1" : "0");
 }
 
 public void OnClientCookiesCached(int client)
@@ -132,10 +134,7 @@ public Action Command_Shake(int client, int args)
 		return Plugin_Handled;
 	}
 
-	g_bNoShake[client] = !g_bNoShake[client];
-	CReplyToCommand(client, "{lightgreen}[NoShake]{default} has been %s!", g_bNoShake[client] ? "{green}enabled" : "{red}disabled");
-
-	SetClientCookies(client);
+	SetNoShake(client);
 	return Plugin_Handled;
 }
 
@@ -184,11 +183,7 @@ public int NotifierSettingHandler(Menu menu, MenuAction action, int param1, int 
 			char info[64];
 			menu.GetItem(param2, info, sizeof(info));
 			if (strcmp(info, "noshake", false) == 0)
-			{
-				g_bNoShake[param1] = !g_bNoShake[param1];
-				CReplyToCommand(param1, "{lightgreen}[NoShake]{default} has been %s!", g_bNoShake[param1] ? "{green}enabled" : "{red}disabled");
-				SetClientCookies(param1);
-			}
+				SetNoShake(param1);
 
 			NotifierSetting(param1);
 		}
