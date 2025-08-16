@@ -22,7 +22,7 @@ public Plugin myinfo =
 	name 			= "NoShake",
 	author 			= "BotoX, .Rushaway",
 	description 	= "Disable env_shake",
-	version 		= "1.0.5",
+	version 		= "1.0.6",
 	url 			= ""
 };
 
@@ -57,8 +57,10 @@ public void OnPluginStart()
 
 	for (int i = 1; i < MaxClients; i++)
 	{
-		if (IsClientConnected(i))
-			OnClientPutInServer(i);
+		if (!IsClientConnected(i) || IsFakeClient(i) || !AreClientCookiesCached(i))
+			continue;
+
+		ReadClientCookies(i);
 	}
 
 	g_bLate = false;
@@ -86,15 +88,6 @@ stock void SetNoShake(int client)
 	g_bNoShake[client] = !g_bNoShake[client];
 	CReplyToCommand(client, "{lightgreen}[NoShake]{default} has been %s!", g_bNoShake[client] ? "{green}enabled" : "{red}disabled");
 	SetClientCookie(client, g_hNoShakeCookie, g_bNoShake[client] ? "1" : "0");
-}
-
-public void OnClientPutInServer(int client)
-{
-	if (!g_bLate)
-		return;
-
-	if (AreClientCookiesCached(client))
-		ReadClientCookies(client);
 }
 
 public void OnClientCookiesCached(int client)
