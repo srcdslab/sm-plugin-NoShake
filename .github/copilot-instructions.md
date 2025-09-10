@@ -9,12 +9,12 @@ This repository contains the **NoShake** SourceMod plugin for Source engine game
 
 ### Core Technologies
 - **Language**: SourcePawn (Source engine scripting language)
-- **Platform**: SourceMod 1.11.0+ (scripting framework for Source games)
+- **Platform**: SourceMod 1.12+ (latest stable release, scripting framework for Source games)
 - **Build Tool**: SourceKnight (Python-based SourceMod build system)
 - **Compiler**: SourcePawn Compiler (spcomp) - handled by SourceKnight
 
 ### Dependencies
-- **SourceMod**: 1.11.0-git6934 or later
+- **SourceMod**: 1.12+ (latest stable release recommended, minimum 1.11.0-git6934)
 - **MultiColors**: Community include for colored chat messages
 - **Standard SourceMod includes**: sourcemod, sdkhooks, clientprefs
 
@@ -185,7 +185,7 @@ menu.AddItem("newsetting", "New Setting");
 ## Debugging & Troubleshooting
 
 ### Common Issues
-1. **Plugin not loading**: Check SourceMod version compatibility (requires 1.11.0+)
+1. **Plugin not loading**: Check SourceMod version compatibility (requires 1.12+ recommended, minimum 1.11.0+)
 2. **Commands not working**: Verify command registration in OnPluginStart()
 3. **Cookies not saving**: Ensure AreClientCookiesCached() before reading/writing
 4. **Shake still happening**: Check force shake ConVar and message hook implementation
