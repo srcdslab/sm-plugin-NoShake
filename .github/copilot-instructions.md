@@ -10,8 +10,8 @@ This repository contains the **NoShake** SourceMod plugin for Source engine game
 ### Core Technologies
 - **Language**: SourcePawn (Source engine scripting language)
 - **Platform**: SourceMod 1.12+ (latest stable release, scripting framework for Source games)
-- **Build Tool**: SourceKnight (Python-based SourceMod build system)
-- **Compiler**: SourcePawn Compiler (spcomp) - handled by SourceKnight
+- **Build Tool**: Native GitHub Actions workflow (rumblefrog/setup-sp)
+- **Compiler**: SourcePawn Compiler (spcomp) - installed via setup-sp action
 
 ### Dependencies
 - **SourceMod**: 1.12+ (latest stable release recommended, minimum 1.11.0-git6934)
@@ -19,21 +19,17 @@ This repository contains the **NoShake** SourceMod plugin for Source engine game
 - **Standard SourceMod includes**: sourcemod, sdkhooks, clientprefs
 
 ### Build System
-The project uses **SourceKnight** as defined in `sourceknight.yaml`:
+The project uses a native **GitHub Actions** workflow defined in `.github/workflows/ci.yml`:
 ```bash
-# Build the plugin
-sourceknight build
-
-# Dependencies are automatically downloaded:
-# - SourceMod from AlliedMods
-# - MultiColors from GitHub
+# CI installs the SourcePawn compiler via rumblefrog/setup-sp,
+# clones MultiColors as a dependency, and compiles with spcomp directly.
+spcomp -i include -o ../plugins/NoShake.smx NoShake.sp
 ```
 
 ## Project Structure
 ```
 /addons/sourcemod/scripting/
 ├── NoShake.sp              # Main plugin source
-/sourceknight.yaml          # Build configuration
 /.github/workflows/ci.yml   # CI/CD pipeline
 ```
 
@@ -126,7 +122,7 @@ HookUserMessage(GetUserMessageId("Shake"), MsgHook, true);
 
 ### Build Process
 The CI system automatically:
-1. Downloads dependencies via SourceKnight
+1. Installs spcomp and clones dependencies (e.g. MultiColors) via GitHub Actions
 2. Compiles the plugin using spcomp
 3. Packages the compiled .smx file
 4. Creates releases on tags/master branch
