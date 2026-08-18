@@ -22,7 +22,7 @@ public Plugin myinfo =
 	name 			= "NoShake",
 	author 			= "BotoX, .Rushaway",
 	description 	= "Disable env_shake",
-	version 		= "1.0.7",
+	version 		= "1.0.8",
 	url 			= ""
 };
 
@@ -34,6 +34,8 @@ public APLRes AskPluginLoad2(Handle myself, bool late, char[] error, int err_max
 
 public void OnPluginStart()
 {
+	LoadTranslations("noshake.phrases");
+
 	RegConsoleCmd("sm_shake", Command_Shake, "[NoShake] Disables or enables screen shakes.");
 	RegConsoleCmd("sm_noshake", Command_Shake, "[NoShake] Disables or enables screen shakes.");
 
@@ -70,12 +72,12 @@ public void OnConVarChanged(ConVar convar, const char[] oldValue, const char[] n
 {
 	if (convar == g_Cvar_ForceShake)
 	{
-		CPrintToChatAll("{lightgreen}[NoShake]{default} Map/Server %s {default}the usage of Shake.", StringToInt(newValue) > StringToInt(oldValue) ? "{red}Forced" : "{green}Unforced");
+		CPrintToChatAll("%t", StringToInt(newValue) > StringToInt(oldValue) ? "NoShake Force Enabled" : "NoShake Force Disabled");
 		g_bForceShake = StringToInt(newValue) != 0;
 	}
 	else if (convar == g_Cvar_NoShakeGlobal)
 	{
-		CPrintToChatAll("{lightgreen}[NoShake]{default} %s {default}NoShake globally!", StringToInt(newValue) > StringToInt(oldValue) ? "{green}Enabled" : "{red}Disabled");
+		CPrintToChatAll("%t", StringToInt(newValue) > StringToInt(oldValue) ? "NoShake Global Enabled" : "NoShake Global Disabled");
 		g_bNoShakeGlobal = StringToInt(newValue) != 0;
 	}
 }
@@ -86,7 +88,7 @@ stock void SetNoShake(int client)
 		return;
 
 	g_bNoShake[client] = !g_bNoShake[client];
-	CReplyToCommand(client, "{lightgreen}[NoShake]{default} has been %s!", g_bNoShake[client] ? "{green}enabled" : "{red}disabled");
+	CReplyToCommand(client, "%t", g_bNoShake[client] ? "NoShake Personal Enabled" : "NoShake Personal Disabled");
 	SetClientCookie(client, g_hNoShakeCookie, g_bNoShake[client] ? "1" : "0");
 }
 
@@ -117,13 +119,13 @@ public Action Command_Shake(int client, int args)
 {
 	if (g_bForceShake)
 	{
-		CReplyToCommand(client, "{lightgreen}[NoShake]{default} The map/server has {red}forced {default}the usage of Shake.");
+		CReplyToCommand(client, "%t", "NoShake Force Notice");
 		return Plugin_Handled;
 	}
 
 	if (g_bNoShakeGlobal)
 	{
-		CReplyToCommand(client, "{lightgreen}[NoShake]{default} Screen Shake is {red}disabled {default}globally.");
+		CReplyToCommand(client, "%t", "NoShake Global Notice");
 		return Plugin_Handled;
 	}
 
@@ -145,10 +147,13 @@ public void CookieHandler(int client, CookieMenuAction action, any info, char[] 
 public void NotifierSetting(int client)
 {
 	Menu menu = new Menu(NotifierSettingHandler, MENU_ACTIONS_ALL);
-	menu.SetTitle("NoShake Settings");
+
+	char title[64];
+	FormatEx(title, sizeof(title), "%T", "NoShake Menu Title", client);
+	menu.SetTitle(title);
 
 	char shake[64];
-	FormatEx(shake, 64, "NoShake");
+	FormatEx(shake, sizeof(shake), "%T", "NoShake Menu Item", client);
 
 	menu.AddItem("noshake", shake);
 	menu.ExitBackButton = true;
@@ -166,8 +171,8 @@ public int NotifierSettingHandler(Menu menu, MenuAction action, int param1, int 
 			menu.GetItem(param2, info, sizeof(info));
 			if (strcmp(info, "noshake", false) == 0)
 			{
-				FormatEx(type, sizeof(type), g_bNoShake[param1] ? "Enabled" : "Disabled");
-				FormatEx(display, sizeof(display), "NoShake: %s", type);
+				FormatEx(type, sizeof(type), "%T", g_bNoShake[param1] ? "NoShake State Enabled" : "NoShake State Disabled", param1);
+				FormatEx(display, sizeof(display), "%T", "NoShake Menu Display", param1, type);
 				return RedrawMenuItem(display);
 			}
 		}
