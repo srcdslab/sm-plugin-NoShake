@@ -99,10 +99,10 @@
 	"NoShake Menu Display"
 	{
 		"#format"	"{1:s}"
-		"en"		"NoShake: {1:s}"
-		"fr"		"NoShake : {1:s}"
-		"es"		"NoShake: {1:s}"
-		"ru"		"NoShake: {1:s}"
-		"chi"		"NoShake：{1:s}"
+		"en"		"NoShake: {1}"
+		"fr"		"NoShake : {1}"
+		"es"		"NoShake: {1}"
+		"ru"		"NoShake: {1}"
+		"chi"		"NoShake：{1}"
 	}
 }
