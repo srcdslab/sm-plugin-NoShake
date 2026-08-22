@@ -72,12 +72,12 @@ public void OnConVarChanged(ConVar convar, const char[] oldValue, const char[] n
 {
 	if (convar == g_Cvar_ForceShake)
 	{
-		CPrintToChatAll("%t", StringToInt(newValue) > StringToInt(oldValue) ? "NoShake Force Enabled" : "NoShake Force Disabled");
+		CPrintToChatAll("%t %t", "NoShake Prefix", StringToInt(newValue) > StringToInt(oldValue) ? "NoShake Force Enabled" : "NoShake Force Disabled");
 		g_bForceShake = StringToInt(newValue) != 0;
 	}
 	else if (convar == g_Cvar_NoShakeGlobal)
 	{
-		CPrintToChatAll("%t", StringToInt(newValue) > StringToInt(oldValue) ? "NoShake Global Enabled" : "NoShake Global Disabled");
+		CPrintToChatAll("%t %t", "NoShake Prefix", StringToInt(newValue) > StringToInt(oldValue) ? "NoShake Global Enabled" : "NoShake Global Disabled");
 		g_bNoShakeGlobal = StringToInt(newValue) != 0;
 	}
 }
@@ -88,7 +88,7 @@ stock void SetNoShake(int client)
 		return;
 
 	g_bNoShake[client] = !g_bNoShake[client];
-	CReplyToCommand(client, "%t", g_bNoShake[client] ? "NoShake Personal Enabled" : "NoShake Personal Disabled");
+	CReplyToCommand(client, "%t %t", "NoShake Prefix", g_bNoShake[client] ? "NoShake Personal Enabled" : "NoShake Personal Disabled");
 	SetClientCookie(client, g_hNoShakeCookie, g_bNoShake[client] ? "1" : "0");
 }
 
@@ -119,13 +119,13 @@ public Action Command_Shake(int client, int args)
 {
 	if (g_bForceShake)
 	{
-		CReplyToCommand(client, "%t", "NoShake Force Notice");
+		CReplyToCommand(client, "%t %t", "NoShake Prefix", "NoShake Force Notice");
 		return Plugin_Handled;
 	}
 
 	if (g_bNoShakeGlobal)
 	{
-		CReplyToCommand(client, "%t", "NoShake Global Notice");
+		CReplyToCommand(client, "%t %t", "NoShake Prefix", "NoShake Global Notice");
 		return Plugin_Handled;
 	}
 
