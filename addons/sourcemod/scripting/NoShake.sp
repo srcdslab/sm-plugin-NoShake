@@ -57,7 +57,7 @@ public void OnPluginStart()
 	if (!g_bLate)
 		return;
 
-	for (int i = 1; i < MaxClients; i++)
+	for (int i = 1; i <= MaxClients; i++)
 	{
 		if (!IsClientConnected(i) || IsFakeClient(i) || !AreClientCookiesCached(i))
 			continue;
