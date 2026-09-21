@@ -22,7 +22,7 @@ public Plugin myinfo =
 	name 			= "NoShake",
 	author 			= "BotoX, .Rushaway",
 	description 	= "Disable env_shake",
-	version 		= "1.0.8",
+	version 		= "1.0.9",
 	url 			= ""
 };
 
@@ -57,7 +57,7 @@ public void OnPluginStart()
 	if (!g_bLate)
 		return;
 
-	for (int i = 1; i < MaxClients; i++)
+	for (int i = 1; i <= MaxClients; i++)
 	{
 		if (!IsClientConnected(i) || IsFakeClient(i) || !AreClientCookiesCached(i))
 			continue;
