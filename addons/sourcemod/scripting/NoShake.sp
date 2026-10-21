@@ -7,7 +7,7 @@
 
 #pragma newdecls required
 
-Handle g_hNoShakeCookie;
+Cookie g_hNoShakeCookie;
 ConVar g_Cvar_NoShakeGlobal;
 ConVar g_Cvar_ForceShake;
 
@@ -22,7 +22,7 @@ public Plugin myinfo =
 	name 			= "NoShake",
 	author 			= "BotoX, .Rushaway",
 	description 	= "Disable env_shake",
-	version 		= "1.0.9",
+	version 		= "1.0.10",
 	url 			= ""
 };
 
@@ -39,7 +39,7 @@ public void OnPluginStart()
 	RegConsoleCmd("sm_shake", Command_Shake, "[NoShake] Disables or enables screen shakes.");
 	RegConsoleCmd("sm_noshake", Command_Shake, "[NoShake] Disables or enables screen shakes.");
 
-	g_hNoShakeCookie = RegClientCookie("noshake_cookie", "NoShake", CookieAccess_Protected);
+	g_hNoShakeCookie = new Cookie("noshake_cookie", "NoShake", CookieAccess_Protected);
 	SetCookieMenuItem(CookieHandler, 0, "NoShake Settings");
 
 	g_Cvar_NoShakeGlobal = CreateConVar("sm_noshake_global", "0", "Disable screenshake globally.", 0, true, 0.0, true, 1.0);
@@ -89,7 +89,7 @@ stock void SetNoShake(int client)
 
 	g_bNoShake[client] = !g_bNoShake[client];
 	CReplyToCommand(client, "%t %t", "NoShake Prefix", g_bNoShake[client] ? "NoShake Personal Enabled" : "NoShake Personal Disabled");
-	SetClientCookie(client, g_hNoShakeCookie, g_bNoShake[client] ? "1" : "0");
+	g_hNoShakeCookie.Set(client, g_bNoShake[client] ? "1" : "0");
 }
 
 public void OnClientCookiesCached(int client)
@@ -100,7 +100,7 @@ public void OnClientCookiesCached(int client)
 public void ReadClientCookies(int client)
 {
 	static char sCookieValue[2];
-	GetClientCookie(client, g_hNoShakeCookie, sCookieValue, sizeof(sCookieValue));
+	g_hNoShakeCookie.Get(client, sCookieValue, sizeof(sCookieValue));
 	g_bNoShake[client] = StringToInt(sCookieValue) != 0;
 }
 
