@@ -22,7 +22,7 @@ public Plugin myinfo =
 	name 			= "NoShake",
 	author 			= "BotoX, .Rushaway",
 	description 	= "Disable env_shake",
-	version 		= "1.0.10",
+	version 		= "1.0.11",
 	url 			= ""
 };
 
