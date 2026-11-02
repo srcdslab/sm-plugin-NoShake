@@ -7,38 +7,48 @@
 		"es"		"{lightgreen}[NoShake]{default}"
 		"ru"		"{lightgreen}[NoShake]{default}"
 		"chi"		"{lightgreen}[NoShake]{default}"
+		"de"		"{lightgreen}[NoShake]{default}"
+		"pt"		"{lightgreen}[NoShake]{default}"
 	}
 	"NoShake Force Enabled"
 	{
 		"en"		"Map/Server {red}Forced {default}the usage of Shake."
-		"fr"		"Le Map/Serveur a {red}Forcé {default}l'utilisation du Shake."
-		"es"		"El Mapa/Servidor ha {red}Forzado {default}el uso de Shake."
+		"fr"		"La map/le serveur a {red}forcé {default}l'utilisation du Shake."
+		"es"		"El mapa/servidor ha {red}forzado {default}el uso de Shake."
 		"ru"		"Карта/Сервер {red}принудительно включила {default}использование Shake."
 		"chi"		"地图/服务器已{red}强制{default}启用屏幕震动。"
+		"de"		"Map/Server hat Shake {red}erzwungen{default}."
+		"pt"		"O mapa/servidor {red}forçou {default}o uso do Shake."
 	}
 	"NoShake Force Disabled"
 	{
 		"en"		"Map/Server {green}Unforced {default}the usage of Shake."
-		"fr"		"Le Map/Serveur ne {green}force plus {default}l'utilisation du Shake."
-		"es"		"El Mapa/Servidor ya no {green}fuerza {default}el uso de Shake."
+		"fr"		"La map/le serveur ne {green}force plus {default}l'utilisation du Shake."
+		"es"		"El mapa/servidor ya no {green}fuerza {default}el uso de Shake."
 		"ru"		"Карта/Сервер {green}отменила принудительное {default}использование Shake."
 		"chi"		"地图/服务器已{green}取消强制{default}启用屏幕震动。"
+		"de"		"Map/Server erzwingt Shake {green}nicht mehr{default}."
+		"pt"		"O mapa/servidor {green}deixou de forçar {default}o uso do Shake."
 	}
 	"NoShake Global Enabled"
 	{
 		"en"		"{green}Enabled {default}NoShake globally!"
-		"fr"		"NoShake a été {green}Activé {default}globalement !"
-		"es"		"NoShake ha sido {green}Activado {default}globalmente!"
+		"fr"		"NoShake a été {green}activé {default}globalement !"
+		"es"		"¡NoShake ha sido {green}activado {default}globalmente!"
 		"ru"		"NoShake был {green}включён {default}глобально!"
 		"chi"		"已{green}全局启用{default}NoShake！"
+		"de"		"NoShake global {green}aktiviert{default}!"
+		"pt"		"NoShake {green}ativado {default}globalmente!"
 	}
 	"NoShake Global Disabled"
 	{
 		"en"		"{red}Disabled {default}NoShake globally!"
-		"fr"		"NoShake a été {red}Désactivé {default}globalement !"
-		"es"		"NoShake ha sido {red}Desactivado {default}globalmente!"
+		"fr"		"NoShake a été {red}désactivé {default}globalement !"
+		"es"		"¡NoShake ha sido {red}desactivado {default}globalmente!"
 		"ru"		"NoShake был {red}отключён {default}глобально!"
 		"chi"		"已{red}全局禁用{default}NoShake！"
+		"de"		"NoShake global {red}deaktiviert{default}!"
+		"pt"		"NoShake {red}desativado {default}globalmente!"
 	}
 	"NoShake Personal Enabled"
 	{
@@ -47,6 +57,8 @@
 		"es"		"ha sido {green}activado{default}!"
 		"ru"		"был {green}включён{default}!"
 		"chi"		"已被{green}启用{default}！"
+		"de"		"wurde {green}aktiviert{default}!"
+		"pt"		"foi {green}ativado{default}!"
 	}
 	"NoShake Personal Disabled"
 	{
@@ -55,14 +67,18 @@
 		"es"		"ha sido {red}desactivado{default}!"
 		"ru"		"был {red}отключён{default}!"
 		"chi"		"已被{red}禁用{default}！"
+		"de"		"wurde {red}deaktiviert{default}!"
+		"pt"		"foi {red}desativado{default}!"
 	}
 	"NoShake Force Notice"
 	{
 		"en"		"The map/server has {red}forced {default}the usage of Shake."
-		"fr"		"Le map/serveur a {red}forcé {default}l'utilisation du Shake."
+		"fr"		"La map/le serveur a {red}forcé {default}l'utilisation du Shake."
 		"es"		"El mapa/servidor ha {red}forzado {default}el uso de Shake."
 		"ru"		"Карта/сервер {red}принудительно включила {default}использование Shake."
 		"chi"		"地图/服务器已{red}强制{default}启用屏幕震动。"
+		"de"		"Die Map/der Server hat Shake {red}erzwungen{default}."
+		"pt"		"O mapa/servidor {red}forçou {default}o uso do Shake."
 	}
 	"NoShake Global Notice"
 	{
@@ -71,6 +87,8 @@
 		"es"		"El Shake está {red}desactivado {default}globalmente."
 		"ru"		"Тряска экрана {red}отключена {default}глобально."
 		"chi"		"屏幕震动已{red}全局禁用{default}。"
+		"de"		"Bildschirmwackeln ist global {red}deaktiviert{default}."
+		"pt"		"O tremor de tela está {red}desativado {default}globalmente."
 	}
 	"NoShake Menu Title"
 	{
@@ -79,6 +97,8 @@
 		"es"		"Configuración de NoShake"
 		"ru"		"Настройки NoShake"
 		"chi"		"NoShake 设置"
+		"de"		"NoShake-Einstellungen"
+		"pt"		"Configurações do NoShake"
 	}
 	"NoShake Menu Item"
 	{
@@ -87,6 +107,8 @@
 		"es"		"NoShake"
 		"ru"		"NoShake"
 		"chi"		"NoShake"
+		"de"		"NoShake"
+		"pt"		"NoShake"
 	}
 	"NoShake State Enabled"
 	{
@@ -95,6 +117,8 @@
 		"es"		"Activado"
 		"ru"		"Включено"
 		"chi"		"已启用"
+		"de"		"Aktiviert"
+		"pt"		"Ativado"
 	}
 	"NoShake State Disabled"
 	{
@@ -103,6 +127,8 @@
 		"es"		"Desactivado"
 		"ru"		"Отключено"
 		"chi"		"已禁用"
+		"de"		"Deaktiviert"
+		"pt"		"Desativado"
 	}
 	"NoShake Menu Display"
 	{
@@ -112,5 +138,7 @@
 		"es"		"NoShake: {1}"
 		"ru"		"NoShake: {1}"
 		"chi"		"NoShake：{1}"
+		"de"		"NoShake: {1}"
+		"pt"		"NoShake: {1}"
 	}
 }
