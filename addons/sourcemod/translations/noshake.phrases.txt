@@ -9,6 +9,12 @@
 		"chi"		"{lightgreen}[NoShake]{default}"
 		"de"		"{lightgreen}[NoShake]{default}"
 		"pt"		"{lightgreen}[NoShake]{default}"
+		"pl"		"{lightgreen}[NoShake]{default}"
+		"tr"		"{lightgreen}[NoShake]{default}"
+		"it"		"{lightgreen}[NoShake]{default}"
+		"ua"		"{lightgreen}[NoShake]{default}"
+		"zho"		"{lightgreen}[NoShake]{default}"
+		"cze"		"{lightgreen}[NoShake]{default}"
 	}
 	"NoShake Force Enabled"
 	{
@@ -19,6 +25,12 @@
 		"chi"		"地图/服务器已{red}强制{default}启用屏幕震动。"
 		"de"		"Map/Server hat Shake {red}erzwungen{default}."
 		"pt"		"O mapa/servidor {red}forçou {default}o uso do Shake."
+		"pl"		"Mapa/serwer {red}wymusił {default}użycie Shake."
+		"tr"		"Harita/Sunucu Shake kullanımını {red}zorunlu kıldı{default}."
+		"it"		"La mappa/il server ha {red}forzato {default}l'uso dello Shake."
+		"ua"		"Мапа/сервер {red}примусово ввімкнув {default}використання Shake."
+		"zho"		"地圖/伺服器已{red}強制{default}使用震動效果。"
+		"cze"		"Mapa/server {red}vynutil {default}použití Shake."
 	}
 	"NoShake Force Disabled"
 	{
@@ -29,6 +41,12 @@
 		"chi"		"地图/服务器已{green}取消强制{default}启用屏幕震动。"
 		"de"		"Map/Server erzwingt Shake {green}nicht mehr{default}."
 		"pt"		"O mapa/servidor {green}deixou de forçar {default}o uso do Shake."
+		"pl"		"Mapa/serwer {green}przestał wymuszać {default}użycie Shake."
+		"tr"		"Harita/Sunucu Shake kullanımını artık {green}zorunlu kılmıyor{default}."
+		"it"		"La mappa/il server {green}non forza più {default}l'uso dello Shake."
+		"ua"		"Мапа/сервер {green}скасував примусове {default}використання Shake."
+		"zho"		"地圖/伺服器已{green}取消強制{default}使用震動效果。"
+		"cze"		"Mapa/server {green}přestal vynucovat {default}použití Shake."
 	}
 	"NoShake Global Enabled"
 	{
@@ -39,6 +57,12 @@
 		"chi"		"已{green}全局启用{default}NoShake！"
 		"de"		"NoShake global {green}aktiviert{default}!"
 		"pt"		"NoShake {green}ativado {default}globalmente!"
+		"pl"		"{green}Włączono {default}NoShake globalnie!"
+		"tr"		"NoShake global olarak {green}etkinleştirildi{default}!"
+		"it"		"NoShake {green}attivato {default}globalmente!"
+		"ua"		"NoShake {green}увімкнено {default}глобально!"
+		"zho"		"已{green}全域啟用{default}NoShake！"
+		"cze"		"NoShake {green}zapnut {default}globálně!"
 	}
 	"NoShake Global Disabled"
 	{
@@ -49,6 +73,12 @@
 		"chi"		"已{red}全局禁用{default}NoShake！"
 		"de"		"NoShake global {red}deaktiviert{default}!"
 		"pt"		"NoShake {red}desativado {default}globalmente!"
+		"pl"		"{red}Wyłączono {default}NoShake globalnie!"
+		"tr"		"NoShake global olarak {red}devre dışı bırakıldı{default}!"
+		"it"		"NoShake {red}disattivato {default}globalmente!"
+		"ua"		"NoShake {red}вимкнено {default}глобально!"
+		"zho"		"已{red}全域停用{default}NoShake！"
+		"cze"		"NoShake {red}vypnut {default}globálně!"
 	}
 	"NoShake Personal Enabled"
 	{
@@ -59,6 +89,12 @@
 		"chi"		"已被{green}启用{default}！"
 		"de"		"wurde {green}aktiviert{default}!"
 		"pt"		"foi {green}ativado{default}!"
+		"pl"		"został {green}włączony{default}!"
+		"tr"		"{green}etkinleştirildi{default}!"
+		"it"		"è stato {green}attivato{default}!"
+		"ua"		"{green}увімкнено{default}!"
+		"zho"		"已{green}啟用{default}！"
+		"cze"		"byl {green}zapnut{default}!"
 	}
 	"NoShake Personal Disabled"
 	{
@@ -69,6 +105,12 @@
 		"chi"		"已被{red}禁用{default}！"
 		"de"		"wurde {red}deaktiviert{default}!"
 		"pt"		"foi {red}desativado{default}!"
+		"pl"		"został {red}wyłączony{default}!"
+		"tr"		"{red}devre dışı bırakıldı{default}!"
+		"it"		"è stato {red}disattivato{default}!"
+		"ua"		"{red}вимкнено{default}!"
+		"zho"		"已{red}停用{default}！"
+		"cze"		"byl {red}vypnut{default}!"
 	}
 	"NoShake Force Notice"
 	{
@@ -79,6 +121,12 @@
 		"chi"		"地图/服务器已{red}强制{default}启用屏幕震动。"
 		"de"		"Die Map/der Server hat Shake {red}erzwungen{default}."
 		"pt"		"O mapa/servidor {red}forçou {default}o uso do Shake."
+		"pl"		"Mapa/serwer {red}wymusił {default}użycie Shake."
+		"tr"		"Harita/Sunucu Shake kullanımını {red}zorunlu kıldı{default}."
+		"it"		"La mappa/il server ha {red}forzato {default}l'uso dello Shake."
+		"ua"		"Мапа/сервер {red}примусово ввімкнув {default}використання Shake."
+		"zho"		"地圖/伺服器已{red}強制{default}使用震動效果。"
+		"cze"		"Mapa/server {red}vynutil {default}použití Shake."
 	}
 	"NoShake Global Notice"
 	{
@@ -89,6 +137,12 @@
 		"chi"		"屏幕震动已{red}全局禁用{default}。"
 		"de"		"Bildschirmwackeln ist global {red}deaktiviert{default}."
 		"pt"		"O tremor de tela está {red}desativado {default}globalmente."
+		"pl"		"Wstrząsy ekranu są globalnie {red}wyłączone{default}."
+		"tr"		"Ekran sarsıntısı global olarak {red}devre dışı{default}."
+		"it"		"Lo screen shake è {red}disattivato {default}globalmente."
+		"ua"		"Тремтіння екрана {red}вимкнено {default}глобально."
+		"zho"		"畫面震動已{red}全域停用{default}。"
+		"cze"		"Třesení obrazovky je globálně {red}vypnuto{default}."
 	}
 	"NoShake Menu Title"
 	{
@@ -99,6 +153,12 @@
 		"chi"		"NoShake 设置"
 		"de"		"NoShake-Einstellungen"
 		"pt"		"Configurações do NoShake"
+		"pl"		"Ustawienia NoShake"
+		"tr"		"NoShake Ayarları"
+		"it"		"Impostazioni NoShake"
+		"ua"		"Налаштування NoShake"
+		"zho"		"NoShake 設定"
+		"cze"		"Nastavení NoShake"
 	}
 	"NoShake Menu Item"
 	{
@@ -109,6 +169,12 @@
 		"chi"		"NoShake"
 		"de"		"NoShake"
 		"pt"		"NoShake"
+		"pl"		"NoShake"
+		"tr"		"NoShake"
+		"it"		"NoShake"
+		"ua"		"NoShake"
+		"zho"		"NoShake"
+		"cze"		"NoShake"
 	}
 	"NoShake State Enabled"
 	{
@@ -119,6 +185,12 @@
 		"chi"		"已启用"
 		"de"		"Aktiviert"
 		"pt"		"Ativado"
+		"pl"		"Włączone"
+		"tr"		"Etkin"
+		"it"		"Attivato"
+		"ua"		"Увімкнено"
+		"zho"		"已啟用"
+		"cze"		"Zapnuto"
 	}
 	"NoShake State Disabled"
 	{
@@ -129,6 +201,12 @@
 		"chi"		"已禁用"
 		"de"		"Deaktiviert"
 		"pt"		"Desativado"
+		"pl"		"Wyłączone"
+		"tr"		"Devre dışı"
+		"it"		"Disattivato"
+		"ua"		"Вимкнено"
+		"zho"		"已停用"
+		"cze"		"Vypnuto"
 	}
 	"NoShake Menu Display"
 	{
@@ -140,5 +218,11 @@
 		"chi"		"NoShake：{1}"
 		"de"		"NoShake: {1}"
 		"pt"		"NoShake: {1}"
+		"pl"		"NoShake: {1}"
+		"tr"		"NoShake: {1}"
+		"it"		"NoShake: {1}"
+		"ua"		"NoShake: {1}"
+		"zho"		"NoShake: {1}"
+		"cze"		"NoShake: {1}"
 	}
 }
